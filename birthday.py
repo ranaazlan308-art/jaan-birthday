@@ -44,7 +44,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Session State for Step Tracker
+# Session State Initialization
 if 'step' not in st.session_state:
     st.session_state.step = 1
 if 'wife_name' not in st.session_state:
@@ -52,7 +52,7 @@ if 'wife_name' not in st.session_state:
 if 'husband_name' not in st.session_state:
     st.session_state.husband_name = ""
 
-# Main Title
+# Main Header Title
 st.markdown("<h1 class='main-title'>✨ A Very Special Surprise ✨</h1>", unsafe_allow_html=True)
 st.write("")
 
@@ -123,13 +123,13 @@ elif st.session_state.step == 3:
             else:
                 st.error("Meherbani karke Date of Birth select karein! ❤️")
 
-# ---------------- STEP 4: Final Message ----------------
+# ---------------- STEP 4: Final Message & Wish ----------------
 elif st.session_state.step == 4:
     st.info(f"😜 **Pehle Ek Mazrat!**\n\nAapki birthday par aap se aapke husband (**{st.session_state.husband_name}**) ki DOB puchi ja rhi hai, is nadaani ko dil par mat lijiyega! ❤️")
     
     st.divider()
 
-    # Birthday Wish
+    # Birthday Card
     st.markdown(f"""
     <div class="card">
         <h2 class="gold-title">🎂 Happy Birthday, {st.session_state.wife_name}! 🎈</h2>
@@ -139,18 +139,18 @@ elif st.session_state.step == 4:
     </div>
     """, unsafe_allow_html=True)
 
-    # Simple Message & Apology Block
+    # Clean Love & Apology Message
     st.markdown("""
     <div style="text-align: center; padding: 25px; background: rgba(255, 255, 255, 0.1); border-radius: 20px; border: 1px solid rgba(255, 182, 193, 0.3); margin-top: 15px;">
         <h1 style="color: #ff4d6d; font-size: 36px; font-weight: 800; margin-bottom: 10px;">
             I LOVE YOU SO MUCH! ❤️
         </h1>
         
-        <p style="font-size: 18px; color: #ffffff; margin-bottom: 20px;">
+        <p style="font-size: 18px; color: #ffffff; margin-bottom: 20px; text-align: center;">
             You are the most precious gift in my life! ✨
         </p>
 
-        <p style="font-size: 15px; color: #ffcccc; font-style: italic; border-top: 1px dashed rgba(255,255,255,0.3); padding-top: 15px; margin-top: 15px;">
+        <p style="font-size: 15px; color: #ffcccc; font-style: italic; border-top: 1px dashed rgba(255,255,255,0.3); padding-top: 15px; margin-top: 15px; text-align: center;">
             🥺 <b>P.S.</b> BOHAT BOHAT MAZRAT WISH KARNE MEIN LATE HOGYA THA! Dil se maafi chahta hu ❤️
         </p>
     </div>
