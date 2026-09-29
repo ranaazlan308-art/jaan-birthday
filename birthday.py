@@ -139,15 +139,11 @@ elif st.session_state.step == 4:
     </div>
     """, unsafe_allow_html=True)
 
-    # Clean Love & Apology Message
+    # Messages Block (Dono messages ab same italic & dashed-border format mein hain)
     st.markdown("""
-    <div style="text-align: center; padding: 25px; background: rgba(255, 255, 255, 0.1); border-radius: 20px; border: 1px solid rgba(255, 182, 193, 0.3); margin-top: 15px;">
-        <h1 style="color: #ff4d6d; font-size: 36px; font-weight: 800; margin-bottom: 10px;">
-            I LOVE YOU SO MUCH! ❤️
-        </h1>
-        
-        <p style="font-size: 18px; color: #ffffff; margin-bottom: 20px; text-align: center;">
-            You are the most precious gift in my life! ✨
+    <div style="text-align: center; padding: 20px; background: rgba(255, 255, 255, 0.1); border-radius: 20px; border: 1px solid rgba(255, 182, 193, 0.3); margin-top: 15px;">
+        <p style="font-size: 16px; color: #ffffff; font-style: italic; margin-bottom: 15px; text-align: center;">
+            ✨ You are the most precious gift in my life! I love you so much! ❤️
         </p>
 
         <p style="font-size: 15px; color: #ffcccc; font-style: italic; border-top: 1px dashed rgba(255,255,255,0.3); padding-top: 15px; margin-top: 15px; text-align: center;">
