@@ -1,9 +1,8 @@
 import streamlit as st
-import time
 
 # Page Configuration
 st.set_page_config(
-    page_title="Special Birthday Wish ❤️",
+    page_title="Special Birthday Surprise ❤️",
     page_icon="🎂",
     layout="centered"
 )
@@ -78,41 +77,87 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
+# Session State for Step Tracker
+if 'step' not in st.session_state:
+    st.session_state.step = 1
+if 'wife_name' not in st.session_state:
+    st.session_state.wife_name = ""
+if 'husband_name' not in st.session_state:
+    st.session_state.husband_name = ""
+
 # Main Title
 st.markdown("<h1 class='main-title'>✨ A Very Special Surprise ✨</h1>", unsafe_allow_html=True)
 st.write("")
 
-# Step 1: Verification Form
-if 'unlocked' not in st.session_state:
-    st.session_state.unlocked = False
-
-if not st.session_state.unlocked:
+# ---------------- STEP 1: Wife Name ----------------
+if st.session_state.step == 1:
     st.markdown("""
     <div class="card">
-        <h3 style="color: #ffd700;">🌸 Pehle Choti Si Verification 😉</h3>
-        <p style="color: #eee;">Khabardar! Aage barhne ke liye sahi maloomat daraj karein:</p>
+        <h3 style="color: #ffd700;">🌸 Step 1 / 3</h3>
+        <p style="font-size: 18px;">Pehle aage barhne ke liye apna pyara sa naam daraj karein:</p>
     </div>
     """, unsafe_allow_html=True)
+    
+    wife_name_input = st.text_input("Aapka Pyara Sa Naam:", value=st.session_state.wife_name)
+    if st.button("Next ➔", use_container_width=True):
+        if wife_name_input.strip():
+            st.session_state.wife_name = wife_name_input.strip()
+            st.session_state.step = 2
+            st.rerun()
+        else:
+            st.error("Meherbani karke apna naam likhein! ❤️")
 
-    with st.form("verification_form"):
-        wife_name = st.text_input("1. Aapka Pyara Sa Naam:")
-        husband_name = st.text_input("2. Aapke Husband Ka Naam:")
-        husband_dob = st.date_input("3. Aapke Husband Ki Date of Birth (DOB):", value=None)
-        
-        submit_btn = st.form_submit_button("Unlock Surprise 🎁", use_container_width=True)
-
-        if submit_btn:
-            if wife_name and husband_name and husband_dob:
-                st.session_state.wife_name = wife_name
-                st.session_state.husband_name = husband_name
-                st.session_state.unlocked = True
+# ---------------- STEP 2: Husband Name ----------------
+elif st.session_state.step == 2:
+    st.markdown(f"""
+    <div class="card">
+        <h3 style="color: #ffd700;">🌸 Step 2 / 3</h3>
+        <p style="font-size: 18px;">Welcome <b>{st.session_state.wife_name}</b>! Ab apne husband ka naam daraj karein:</p>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    husband_name_input = st.text_input("Aapke Husband Ka Naam:", value=st.session_state.husband_name)
+    
+    col1, col2 = st.columns([1, 2])
+    with col1:
+        if st.button("⬅ Back", use_container_width=True):
+            st.session_state.step = 1
+            st.rerun()
+    with col2:
+        if st.button("Next ➔", use_container_width=True):
+            if husband_name_input.strip():
+                st.session_state.husband_name = husband_name_input.strip()
+                st.session_state.step = 3
                 st.rerun()
-                st.balloons()
             else:
-                st.error("Meherbani karke saari details fill karein! ❤️")
+                st.error("Meherbani karke husband ka naam likhein! ❤️")
 
-# Step 2: Main Surprise Display (After Form Submission)
-else:
+# ---------------- STEP 3: Husband DOB ----------------
+elif st.session_state.step == 3:
+    st.markdown(f"""
+    <div class="card">
+        <h3 style="color: #ffd700;">🌸 Step 3 / 3</h3>
+        <p style="font-size: 18px;">Aakhri sawal: Apne husband (<b>{st.session_state.husband_name}</b>) ki Date of Birth chunein:</p>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    husband_dob_input = st.date_input("Aapke Husband Ki Date of Birth (DOB):", value=None)
+    
+    col1, col2 = st.columns([1, 2])
+    with col1:
+        if st.button("⬅ Back", use_container_width=True):
+            st.session_state.step = 2
+            st.rerun()
+    with col2:
+        if st.button("Unlock Surprise 🎁", use_container_width=True):
+            if husband_dob_input:
+                st.session_state.step = 4
+                st.rerun()
+            else:
+                st.error("Meherbani karke Date of Birth select karein! ❤️")
+
+# ---------------- STEP 4: Surprise Result ----------------
+elif st.session_state.step == 4:
     # Funny / Polite Apology Note
     st.info(f"😜 **Pehle Ek Mazrat!**\n\nAapki birthday par aap se aapke husband (**{st.session_state.husband_name}**) ki DOB puchi ja rhi hai, is nadaani ko dil par mat lijiyega! ❤️")
     
@@ -183,7 +228,7 @@ else:
     # Option to Reset Form
     st.write("")
     if st.button("🔄 Restart App", type="secondary"):
-        st.session_state.unlocked = False
+        st.session_state.step = 1
         st.rerun()
 
 # Footer
