@@ -118,7 +118,7 @@ elif st.session_state.step == 3:
     with col2:
         if st.button("Unlock Surprise 🎁", use_container_width=True):
             if husband_dob_input:
-                st.session_state.step = 4
+                st.session_state.step = 6
                 st.rerun()
             else:
                 st.error("Meherbani karke Date of Birth select karein! ❤️")
