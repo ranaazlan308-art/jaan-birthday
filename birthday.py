@@ -42,7 +42,7 @@ st.markdown("""
         line-height: 1.8;
         direction: rtl;
         text-align: center;
-        font-family: 'Noto Nastaliq Urdu', 'Georgia', serif;
+        font-family: 'Georgia', serif;
     }
     </style>
 """, unsafe_allow_html=True)
@@ -84,11 +84,10 @@ st.caption("Add your favorite pictures together below:")
 col1, col2 = st.columns(2)
 
 with col1:
-    # Apni wife ki picture ka URL ya local path daalein
-    st.image("https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=600", caption="Our Magical Moments ✨", use_column_width=True)
+    st.image("https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=600", caption="Our Magical Moments ✨", use_container_width=True)
 
 with col2:
-    st.image("https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600", caption="To Many More Years Together 🥂", use_column_width=True)
+    st.image("https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600", caption="To Many More Years Together 🥂", use_container_width=True)
 
 st.divider()
 
