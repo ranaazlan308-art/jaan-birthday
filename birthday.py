@@ -1,4 +1,5 @@
 import streamlit as st
+import datetime
 
 # Page Configuration
 st.set_page_config(
@@ -99,7 +100,7 @@ elif st.session_state.step == 2:
             else:
                 st.error("Meherbani karke husband ka naam likhein! ❤️")
 
-# ---------------- STEP 3: Husband DOB ----------------
+# ---------------- STEP 3: Husband DOB (Year 2006 restricted) ----------------
 elif st.session_state.step == 3:
     st.markdown(f"""
     <div class="card">
@@ -108,7 +109,13 @@ elif st.session_state.step == 3:
     </div>
     """, unsafe_allow_html=True)
     
-    husband_dob_input = st.date_input("Aapke Husband Ki Date of Birth (DOB):", value=None)
+    # 2006 tak ki dates set kar di hain
+    husband_dob_input = st.date_input(
+        "Aapke Husband Ki Date of Birth (DOB):",
+        value=datetime.date(2006, 1, 1),
+        min_value=datetime.date(1980, 1, 1),
+        max_value=datetime.date(2006, 12, 31)
+    )
     
     col1, col2 = st.columns([1, 2])
     with col1:
@@ -118,7 +125,7 @@ elif st.session_state.step == 3:
     with col2:
         if st.button("Unlock Surprise 🎁", use_container_width=True):
             if husband_dob_input:
-                st.session_state.step = 6
+                st.session_state.step = 4
                 st.rerun()
             else:
                 st.error("Meherbani karke Date of Birth select karein! ❤️")
