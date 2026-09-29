@@ -145,48 +145,48 @@ elif st.session_state.step == 3:
             else:
                 st.error("Meherbani karke Date of Birth select karein! ❤️")
 
-# ---------------- STEP 4: Surprise Result ----------------
+# ---------------- STEP 4: Final Surprise Message (No Slides) ----------------
 elif st.session_state.step == 4:
     # Funny / Polite Apology Note
     st.info(f"😜 **Pehle Ek Mazrat!**\n\nAapki birthday par aap se aapke husband (**{st.session_state.husband_name}**) ki DOB puchi ja rhi hai, is nadaani ko dil par mat lijiyega! ❤️")
     
     st.divider()
 
-    # Slide / Tab structure for wishes (Only 2 Tabs)
-    tab1, tab2 = st.tabs(["🎉 Birthday Wish", "💖 Final Surprise"])
+    # Main Birthday Wish Card
+    st.markdown(f"""
+    <div class="card">
+        <h2 class="gold-title">🎂 Happy Birthday, {st.session_state.wife_name}! 🎈</h2>
+        <p style="font-size: 20px; color: #fff; line-height: 1.8;">
+            Aapko aap ki saalgerah bohat bohat mubarak ho! Allah Pak aapki zindagi ko hamesha khushiyon, sehat aur muskurahat se bhara rakhe. 🤲✨
+        </p>
+    </div>
+    """, unsafe_allow_html=True)
 
-    # TAB 1: Birthday Wish
-    with tab1:
-        st.markdown(f"""
-        <div class="card">
-            <h2 class="gold-title">🎂 Happy Birthday, {st.session_state.wife_name}! 🎈</h2>
-            <br>
-            <p style="font-size: 20px; color: #fff; line-height: 1.8;">
-                Aapko aap ki saalgerah bohat bohat mubarak ho! Allah Pak aapki zindagi ko hamesha khushiyon, sehat aur muskurahat se bhara rakhe. 🤲✨
-            </p>
+    # Love Message & Late Apology Card
+    st.markdown(f"""
+    <div class="card">
+        <h2 class="gold-title">💖 Forever & Always</h2>
+        
+        <div class="love-text">
+            I LOVE YOU SO MUCH! ❤️
         </div>
-        """, unsafe_allow_html=True)
+        
+        <p style="font-size: 18px; color: #fff;">
+            You are the most precious gift in my life! ✨
+        </p>
+        
+        <div class="apology-text">
+            🥺 <b>P.S.</b> BOHAT BOHAT MAZRAT WISH KARNE MEIN LATE HOGYA THA! Dil se maafi chahta hu ❤️
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
 
-    # TAB 2: I Love You & Late Apology
-    with tab2:
-<div class="love-text">
-    I LOVE YOU SO MUCH! ❤️
-</div>
+    # Interactive Celebration Button
+    if st.button("🎉 Click for Birthday Celebration!", use_container_width=True):
+        st.balloons()
+        st.snow()
 
-<p style="font-size: 18px; color: #fff;">
-    You are the most precious gift in my life! ✨
-</p>
-
-<div class="apology-text">
-    🥺 <b>P.S.</b> BOHAT BOHAT MAZRAT WISH KARNE MEIN LATE HOGYA THA! Dil se maafi chahta hu ❤️
-</div>
-        """, unsafe_allow_html=True)
-
-        if st.button("🎉 Click for Birthday Fireworks!", use_container_width=True):
-            st.balloons()
-            st.snow()
-
-    # Option to Reset Form
+    # Option to Reset
     st.write("")
     if st.button("🔄 Restart App", type="secondary"):
         st.session_state.step = 1
