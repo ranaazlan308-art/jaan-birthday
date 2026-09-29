@@ -139,15 +139,14 @@ elif st.session_state.step == 4:
     </div>
     """, unsafe_allow_html=True)
 
-    # Messages Block (Dono messages ab same italic & dashed-border format mein hain)
+    # Simple Messages Block
     st.markdown("""
     <div style="text-align: center; padding: 20px; background: rgba(255, 255, 255, 0.1); border-radius: 20px; border: 1px solid rgba(255, 182, 193, 0.3); margin-top: 15px;">
-        <p style="font-size: 16px; color: #ffffff; font-style: italic; margin-bottom: 15px; text-align: center;">
-            ✨ You are the most precious gift in my life! I love you so much! ❤️
+        <p style="font-size: 18px; color: #ffffff; margin-bottom: 12px; text-align: center;">
+            You are the most precious gift in my life! I love you so much! ✨
         </p>
-
-        <p style="font-size: 15px; color: #ffcccc; font-style: italic; border-top: 1px dashed rgba(255,255,255,0.3); padding-top: 15px; margin-top: 15px; text-align: center;">
-            🥺 <b>P.S.</b> BOHAT BOHAT MAZRAT WISH KARNE MEIN LATE HOGYA THA! Dil se maafi chahta hu ❤️
+        <p style="font-size: 16px; color: #ffcccc; margin: 0; text-align: center;">
+            🥺 <b>P.S.</b> Bohat bohat mazrat wish karne mein late hogya tha! Dil se maafi chahta hu ❤️
         </p>
     </div>
     """, unsafe_allow_html=True)
