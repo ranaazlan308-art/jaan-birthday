@@ -45,17 +45,6 @@ st.markdown("""
         margin-bottom: 15px;
     }
 
-    /* Urdu Poetry Styling */
-    .urdu-poetry {
-        font-size: 24px;
-        color: #ffffff;
-        line-height: 2.2;
-        direction: rtl;
-        text-align: center;
-        font-weight: 600;
-        text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
-    }
-
     /* I Love You Text */
     .love-text {
         font-size: 40px;
@@ -163,8 +152,8 @@ elif st.session_state.step == 4:
     
     st.divider()
 
-    # Slide / Tab structure for wishes
-    tab1, tab2, tab3 = st.tabs(["🎉 Birthday Wish", "📜 Mohabbat Bhare Ash'aar", "💖 Final Surprise"])
+    # Slide / Tab structure for wishes (Only 2 Tabs)
+    tab1, tab2 = st.tabs(["🎉 Birthday Wish", "💖 Final Surprise"])
 
     # TAB 1: Birthday Wish
     with tab1:
@@ -178,31 +167,8 @@ elif st.session_state.step == 4:
         </div>
         """, unsafe_allow_html=True)
 
-    # TAB 2: Poetry
+    # TAB 2: I Love You & Late Apology
     with tab2:
-        st.markdown("""
-        <div class="card">
-            <h2 style="color: #ffb6c1; margin-bottom: 20px;">📜 Sirf Aap Ke Liye</h2>
-            
-            <p class="urdu-poetry">
-                ہماری گفتگو کا رنگ تم سے ہی منور ہے،<br>
-                تمہارا نام لیں تو لفظ بھی خوشبو لٹاتے ہیں۔ 💕
-            </p>
-            <hr style="border: 0.5px solid rgba(255,255,255,0.2); margin: 20px 0;">
-            <p class="urdu-poetry">
-                تمہاری ایک مسکراہٹ پر لٹائی جا سکتی ہے زندگی،<br>
-                تم سے محبت ہے اور بے حساب ہے! ✨
-            </p>
-            <hr style="border: 0.5px solid rgba(255,255,255,0.2); margin: 20px 0;">
-            <p class="urdu-poetry">
-                تیرے خیال سے مہکتی ہے میری ہر شام،<br>
-                تم سے ہی زندگی میں ہر لمحہ ہے خوبصورت! ❤️
-            </p>
-        </div>
-        """, unsafe_allow_html=True)
-
-    # TAB 3: I Love You & Late Apology
-    with tab3:
         st.markdown(f"""
         <div class="card">
             <h2 class="gold-title">💖 Forever & Always</h2>
