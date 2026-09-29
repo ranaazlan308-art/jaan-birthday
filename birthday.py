@@ -7,16 +7,14 @@ st.set_page_config(
     layout="centered"
 )
 
-# Romantic & Attractive Custom Styling
+# Custom Styling
 st.markdown("""
     <style>
-    /* Gradient Background */
     .stApp {
         background: linear-gradient(135deg, #1d0317 0%, #4a0026 50%, #700034 100%);
         color: #ffffff;
     }
     
-    /* Card Container */
     .card {
         background: rgba(255, 255, 255, 0.1);
         backdrop-filter: blur(12px);
@@ -29,7 +27,6 @@ st.markdown("""
         margin-bottom: 20px;
     }
 
-    /* Headings */
     .main-title {
         font-size: 38px !important;
         font-weight: 800;
@@ -43,25 +40,6 @@ st.markdown("""
         font-size: 28px;
         font-weight: 700;
         margin-bottom: 15px;
-    }
-
-    /* I Love You Text */
-    .love-text {
-        font-size: 40px;
-        font-weight: 900;
-        color: #ff4d6d;
-        text-align: center;
-        margin: 20px 0;
-        text-shadow: 0 0 15px #ff4d6d;
-    }
-
-    .apology-text {
-        font-size: 16px;
-        color: #ffcccc;
-        font-style: italic;
-        margin-top: 25px;
-        border-top: 1px dashed rgba(255,255,255,0.3);
-        padding-top: 15px;
     }
     </style>
 """, unsafe_allow_html=True)
@@ -145,14 +123,13 @@ elif st.session_state.step == 3:
             else:
                 st.error("Meherbani karke Date of Birth select karein! ❤️")
 
-# ---------------- STEP 4: Final Surprise Message (No Slides) ----------------
+# ---------------- STEP 4: Final Message ----------------
 elif st.session_state.step == 4:
-    # Funny / Polite Apology Note
     st.info(f"😜 **Pehle Ek Mazrat!**\n\nAapki birthday par aap se aapke husband (**{st.session_state.husband_name}**) ki DOB puchi ja rhi hai, is nadaani ko dil par mat lijiyega! ❤️")
     
     st.divider()
 
-    # Main Birthday Wish Card
+    # Birthday Wish
     st.markdown(f"""
     <div class="card">
         <h2 class="gold-title">🎂 Happy Birthday, {st.session_state.wife_name}! 🎈</h2>
@@ -162,31 +139,28 @@ elif st.session_state.step == 4:
     </div>
     """, unsafe_allow_html=True)
 
-    # Love Message & Late Apology Card
-    st.markdown(f"""
-    <div class="card">
-        <h2 class="gold-title">💖 Forever & Always</h2>
-        
-        <div class="love-text">
+    # Simple Message & Apology Block
+    st.markdown("""
+    <div style="text-align: center; padding: 25px; background: rgba(255, 255, 255, 0.1); border-radius: 20px; border: 1px solid rgba(255, 182, 193, 0.3); margin-top: 15px;">
+        <h1 style="color: #ff4d6d; font-size: 36px; font-weight: 800; margin-bottom: 10px;">
             I LOVE YOU SO MUCH! ❤️
-        </div>
+        </h1>
         
-        <p style="font-size: 18px; color: #fff;">
+        <p style="font-size: 18px; color: #ffffff; margin-bottom: 20px;">
             You are the most precious gift in my life! ✨
         </p>
-        
-        <div class="apology-text">
+
+        <p style="font-size: 15px; color: #ffcccc; font-style: italic; border-top: 1px dashed rgba(255,255,255,0.3); padding-top: 15px; margin-top: 15px;">
             🥺 <b>P.S.</b> BOHAT BOHAT MAZRAT WISH KARNE MEIN LATE HOGYA THA! Dil se maafi chahta hu ❤️
-        </div>
+        </p>
     </div>
     """, unsafe_allow_html=True)
 
-    # Interactive Celebration Button
+    st.write("")
     if st.button("🎉 Click for Birthday Celebration!", use_container_width=True):
         st.balloons()
         st.snow()
 
-    # Option to Reset
     st.write("")
     if st.button("🔄 Restart App", type="secondary"):
         st.session_state.step = 1
