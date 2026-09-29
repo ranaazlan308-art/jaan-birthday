@@ -169,22 +169,17 @@ elif st.session_state.step == 4:
 
     # TAB 2: I Love You & Late Apology
     with tab2:
-        st.markdown(f"""
-        <div class="card">
-            <h2 class="gold-title">💖 Forever & Always</h2>
-            
-            <div class="love-text">
-                I LOVE YOU SO MUCH! ❤️
-            </div>
-            
-            <p style="font-size: 18px; color: #fff;">
-                You are the most precious gift in my life! ✨
-            </p>
-            
-            <div class="apology-text">
-                🥺 <b>P.S.</b> BOHAT BOHAT MAZRAT WISH KARNE MEIN LATE HOGYA THA! Dil se maafi chahta hu ❤️
-            </div>
-        </div>
+<div class="love-text">
+    I LOVE YOU SO MUCH! ❤️
+</div>
+
+<p style="font-size: 18px; color: #fff;">
+    You are the most precious gift in my life! ✨
+</p>
+
+<div class="apology-text">
+    🥺 <b>P.S.</b> BOHAT BOHAT MAZRAT WISH KARNE MEIN LATE HOGYA THA! Dil se maafi chahta hu ❤️
+</div>
         """, unsafe_allow_html=True)
 
         if st.button("🎉 Click for Birthday Fireworks!", use_container_width=True):
